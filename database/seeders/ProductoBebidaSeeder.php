@@ -19,7 +19,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1, // Bebidas
                 'nombre' => 'Agua mineral',
                 'precio' => 1.5,
-                'imagen' => 'storage/bebidas/agua.png',
+                'imagen' => 'bebidas/agua.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -28,7 +28,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Aguila sin filtrar',
                 'precio' => 3.5,
-                'imagen' => 'storage/bebidas/aguilasinfiltrar.png',
+                'imagen' => 'bebidas/aguilasinfiltrar.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -37,7 +37,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Cruzacampo',
                 'precio' => 2.5,
-                'imagen' => 'storage/bebidas/cruzcampo.png',
+                'imagen' => 'bebidas/cruzcampo.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -46,7 +46,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Cruzcampo 00',
                 'precio' => 2.5,
-                'imagen' => 'storage/bebidas/cruzcampo00.png',
+                'imagen' => 'bebidas/cruzcampo00.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -55,7 +55,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Radler',
                 'precio' => 2.5,
-                'imagen' => 'storage/bebidas/cruzcamporadler.png',
+                'imagen' => 'bebidas/cruzcamporadler.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -64,7 +64,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Heineken',
                 'precio' => 3,
-                'imagen' => 'storage/bebidas/heineken.png',
+                'imagen' => 'bebidas/heineken.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -73,7 +73,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Heineken',
                 'precio' => 3,
-                'imagen' => 'storage/bebidas/heineken00.png',
+                'imagen' => 'bebidas/heineken00.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -82,7 +82,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Kas Limón',
                 'precio' => 2,
-                'imagen' => 'storage/bebidas/kaslimon.png',
+                'imagen' => 'bebidas/kaslimon.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -91,7 +91,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Kas Naranja',
                 'precio' => 2,
-                'imagen' => 'storage/bebidas/kasnaranja.png',
+                'imagen' => 'bebidas/kasnaranja.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -100,7 +100,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Pepsi',
                 'precio' => 2,
-                'imagen' => 'storage/bebidas/cruzcamporadler.png',
+                'imagen' => 'bebidas/cruzcamporadler.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -109,7 +109,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Pepsi Zero',
                 'precio' => 2,
-                'imagen' => 'storage/bebidas/pepsizero.png',
+                'imagen' => 'bebidas/pepsizero.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -118,7 +118,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Pepsi Zero Zero',
                 'precio' => 2,
-                'imagen' => 'storage/bebidas/pepsizerozero.png',
+                'imagen' => 'bebidas/pepsizerozero.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -127,7 +127,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Redbull',
                 'precio' => 3,
-                'imagen' => 'storage/bebidas/redbull.png',
+                'imagen' => 'bebidas/redbull.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -136,7 +136,7 @@ class ProductoBebidaSeeder extends Seeder
                 'categoria_id' => 1,
                 'nombre' => 'Seven Up',
                 'precio' => 2,
-                'imagen' => 'storage/bebidas/sevenup.png',
+                'imagen' => 'bebidas/sevenup.png',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
