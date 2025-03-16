@@ -66,6 +66,11 @@ class AuthController extends Controller
     
     public function cerrarSesion (Request $request)
     {
+        $user = $request->user();
+        $user->currentAccessToken()->delete();
 
+        return response()->json([
+            'user' => null
+        ]);
     }
 }
