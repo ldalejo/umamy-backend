@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request\RegistroRequest;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegistroRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -12,10 +16,23 @@ class AuthController extends Controller
      * 
      */
 
-    public function registrarse (RegistroRequest $request)
+    public function registro (RegistroRequest $request)
     {
-        //validar el registro
-        $data = $request->validate();
+        // Validar el registro
+        $data = $request->validated();
+
+        // Crear el usuario
+
+        $usuario = User::create([
+            'name' => $data['nombre'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
+
+        return response()->json([
+            'token' => $usuario->createToken('token')->plainTextToken,
+            'usuario' => $usuario
+        ], 201);
     }
 
     /* 
