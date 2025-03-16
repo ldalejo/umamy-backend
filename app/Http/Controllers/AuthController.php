@@ -40,9 +40,23 @@ class AuthController extends Controller
      * 
      */
 
-    public function iniciarSesion (Request $request)
+    public function iniciarSesion (LoginRequest $request)
     {
+        $data = $request->validated();
 
+        // Revisar password
+        if (!Auth::attempt($data)) {
+            return response()->json([
+                'errors' => ['Credenciales incorrectas. Verifica tu correo y contraseña.']
+            ], 422);
+        }
+
+        // Autenticar al usuario
+        $user = Auth::user();
+        return response()->json([
+            'token' => $user->createToken('token')->plainTextToken,
+            'user' => $user
+        ]);
     }
 
     /* 
