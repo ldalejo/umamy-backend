@@ -64,7 +64,7 @@ class ProductoEntrantesSeeder extends Seeder
                 'categoria_id' => 2,
                 'nombre' => 'Ensalada de tomates',
                 'precio' => 5,
-                'imagen' => 'entrantes/ensalada_tomate.jpg',
+                'imagen' => 'entrantes/ensalada_tomates.jpg',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -73,7 +73,7 @@ class ProductoEntrantesSeeder extends Seeder
                 'categoria_id' => 2,
                 'nombre' => 'Pescaito frito',
                 'precio' => 15,
-                'imagen' => 'entrantes/.jpg',
+                'imagen' => 'entrantes/fish_and_chips.jpg',
                 'disponible' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

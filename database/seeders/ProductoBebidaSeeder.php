@@ -89,33 +89,6 @@ class ProductoBebidaSeeder extends Seeder
             ],
             [
                 'categoria_id' => 1,
-                'nombre' => 'Kas Naranja',
-                'precio' => 2,
-                'imagen' => 'bebidas/kasnaranja.png',
-                'disponible' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'categoria_id' => 1,
-                'nombre' => 'Pepsi',
-                'precio' => 2,
-                'imagen' => 'bebidas/cruzcamporadler.png',
-                'disponible' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'categoria_id' => 1,
-                'nombre' => 'Pepsi Zero',
-                'precio' => 2,
-                'imagen' => 'bebidas/pepsizero.png',
-                'disponible' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'categoria_id' => 1,
                 'nombre' => 'Pepsi Zero Zero',
                 'precio' => 2,
                 'imagen' => 'bebidas/pepsizerozero.png',
