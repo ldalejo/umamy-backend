@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ Route::middleware('auth:sanctum')->group(function() {
     });
 
     Route::post('/logout', [AuthController::class, 'cerrarSesion']);
+
+    Route::post('/pedidos', [PedidoController::class, 'store']);
 
 });
 
