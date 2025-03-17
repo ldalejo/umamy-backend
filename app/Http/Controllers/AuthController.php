@@ -53,6 +53,7 @@ class AuthController extends Controller
 
         // Autenticar al usuario
         $user = Auth::user();
+        
         return response()->json([
             'token' => $user->createToken('token')->plainTextToken,
             'user' => $user
