@@ -13,7 +13,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return new ProductoCollection(Producto::where('disponible', 1)->get());
+        return new ProductoCollection(Producto::all());
     }
 
     /**
@@ -46,5 +46,10 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
         //
+    }
+
+    public function productosDisponibles()
+    {
+        return new ProductoCollection(Producto::where('disponible', 1)->get());
     }
 }
