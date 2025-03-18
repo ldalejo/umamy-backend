@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->group(function() {
     // Rutas Productos
     Route::get('/productos', [ProductoController::class, 'index']);
     Route::get('/productos-disponibles', [ProductoController::class, 'productosDisponibles']);
+    Route::put('/productos/actualizar-producto/{producto}', [ProductoController::class, 'actualizarProducto']);
 });
 
 

@@ -35,9 +35,23 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    public function actualizarProducto(Request $request, Producto $producto)
     {
-        //
+        // Manejamos el error si no encuentra el producto
+        if (!$producto) {
+            return response()->json(['error' => 'Pedido no encontrado'], 404);
+        }
+
+        // Cambiamos el estado a completado
+        $producto->disponible = !$producto->disponible;
+        $producto->save();
+        
+        $mensaje = $producto->disponible === 1 ? 'Producto disponible' : 'Producto no disponible';
+
+        return response()->json([
+            'message' => $mensaje,
+            'producto' => $producto
+        ]);
     }
 
     /**
