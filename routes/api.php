@@ -17,6 +17,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/logout', [AuthController::class, 'cerrarSesion']);
 
     Route::get('/pedidos', [PedidoController::class, 'index']);
+    Route::put('/pedidos/actualizar-pedido/{pedido}', [PedidoController::class, 'actualizarPedido']);
     Route::post('/pedidos/guardar-pedido', [PedidoController::class, 'guardarPedido']);
 
 });

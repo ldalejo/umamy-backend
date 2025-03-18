@@ -82,9 +82,21 @@ class PedidoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pedido $pedido)
+    public function actualizarPedido(Request $request, Pedido $pedido)
     {
-        //
+        // Manejamos el error si no encuentra el pedido
+        if (!$pedido) {
+            return response()->json(['error' => 'Pedido no encontrado'], 404);
+        }
+
+        // Cambiamos el estado a completado
+        $pedido->estado = 1;
+        $pedido->save();
+    
+        return response()->json([
+            'message' => 'Pedido completado.',
+            'pedido' => $pedido
+        ]);
     }
 
     /**
