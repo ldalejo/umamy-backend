@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
     // Rutas Pedidos
     Route::get('/pedidos', [PedidoController::class, 'index']);
+    Route::get('/pedidos-completados', [PedidoController::class, 'pedidosCompletados']);
     Route::put('/pedidos/actualizar-pedido/{pedido}', [PedidoController::class, 'actualizarPedido']);
     Route::post('/pedidos/guardar-pedido', [PedidoController::class, 'guardarPedido']);
 

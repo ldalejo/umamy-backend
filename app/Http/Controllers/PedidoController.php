@@ -106,4 +106,15 @@ class PedidoController extends Controller
     {
         //
     }
+
+    /**
+     * Muestra una lista con los pedidos completados pero no pagados
+     */
+    public function pedidosCompletados()
+    {
+        return new PedidoCollection(Pedido::with('user', 'productos')
+            ->where('estado', 1)
+            ->where('cobrado', 0)
+            ->get());
+    }
 }
