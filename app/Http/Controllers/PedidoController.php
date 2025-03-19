@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
-use App\Http\Resources\PedidoCollection;
 use App\Models\PedidoProducto;
+use App\Models\User;
+use App\Http\Resources\PedidoCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -136,5 +137,10 @@ class PedidoController extends Controller
             'message' => 'Pedido cobrado.',
             'pedido' => $pedido
         ]);
+    }
+
+    public function pedidosUsuario(Request $request, User $usuario)
+    {
+        return new PedidoCollection(Pedido::with('user', 'productos')->where('user_id', $usuario->id)->get());
     }
 }
