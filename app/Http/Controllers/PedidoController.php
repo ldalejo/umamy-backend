@@ -117,4 +117,24 @@ class PedidoController extends Controller
             ->where('cobrado', 0)
             ->get());
     }
+
+    /**
+     * Actualiza un pedido a cobrado
+     */
+    public function cobrarPedido(Request $request, Pedido $pedido)
+    {
+        // Manejamos el error si no encuentra el pedido
+        if (!$pedido) {
+            return response()->json(['error' => 'Pedido no encontrado'], 404);
+        }
+
+        // Cambiamos el estado a cobrado
+        $pedido->cobrado = 1;
+        $pedido->save();
+    
+        return response()->json([
+            'message' => 'Pedido cobrado.',
+            'pedido' => $pedido
+        ]);
+    }
 }
