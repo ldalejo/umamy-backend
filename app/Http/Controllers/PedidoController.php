@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Http\Resources\PedidoCollection;
 use App\Models\PedidoProducto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,13 +18,13 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        return new PedidoCollection(Pedido::with('user', 'productos')->where('estado', 0)->get());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function guardarPedido(Request $request)
     {
         // Iniciar la transacción
         DB::beginTransaction();
@@ -81,9 +82,21 @@ class PedidoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pedido $pedido)
+    public function actualizarPedido(Request $request, Pedido $pedido)
     {
-        //
+        // Manejamos el error si no encuentra el pedido
+        if (!$pedido) {
+            return response()->json(['error' => 'Pedido no encontrado'], 404);
+        }
+
+        // Cambiamos el estado a completado
+        $pedido->estado = 1;
+        $pedido->save();
+    
+        return response()->json([
+            'message' => 'Pedido completado.',
+            'pedido' => $pedido
+        ]);
     }
 
     /**
@@ -92,5 +105,36 @@ class PedidoController extends Controller
     public function destroy(Pedido $pedido)
     {
         //
+    }
+
+    /**
+     * Muestra una lista con los pedidos completados pero no pagados
+     */
+    public function pedidosCompletados()
+    {
+        return new PedidoCollection(Pedido::with('user', 'productos')
+            ->where('estado', 1)
+            ->where('cobrado', 0)
+            ->get());
+    }
+
+    /**
+     * Actualiza un pedido a cobrado
+     */
+    public function cobrarPedido(Request $request, Pedido $pedido)
+    {
+        // Manejamos el error si no encuentra el pedido
+        if (!$pedido) {
+            return response()->json(['error' => 'Pedido no encontrado'], 404);
+        }
+
+        // Cambiamos el estado a cobrado
+        $pedido->cobrado = 1;
+        $pedido->save();
+    
+        return response()->json([
+            'message' => 'Pedido cobrado.',
+            'pedido' => $pedido
+        ]);
     }
 }

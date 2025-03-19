@@ -14,19 +14,29 @@ Route::middleware('auth:sanctum')->group(function() {
     
     });
 
+    // Cerrar Sesión
     Route::post('/logout', [AuthController::class, 'cerrarSesion']);
 
-    Route::post('/pedidos', [PedidoController::class, 'store']);
+    // Rutas Categorias
+    Route::get('/categorias', [CategoriaController::class, 'index']);
 
+    // Rutas Pedidos
+    Route::get('/pedidos', [PedidoController::class, 'index']);
+    Route::get('/pedidos-completados', [PedidoController::class, 'pedidosCompletados']);
+    Route::put('/pedidos/actualizar-pedido/{pedido}', [PedidoController::class, 'actualizarPedido']);
+    Route::put('/pedidos/cobrar-pedido/{pedido}', [PedidoController::class, 'cobrarPedido']);
+    Route::post('/pedidos/guardar-pedido', [PedidoController::class, 'guardarPedido']);
+
+    // Rutas Productos
+    Route::get('/productos', [ProductoController::class, 'index']);
+    Route::get('/productos-disponibles', [ProductoController::class, 'productosDisponibles']);
+    Route::put('/productos/actualizar-producto/{producto}', [ProductoController::class, 'actualizarProducto']);
 });
 
 
 //Autenticación
 Route::post('/registro', [AuthController::class, 'registro']);
 Route::post('/iniciar-sesion', [AuthController::class, 'iniciarSesion']);
-
-Route::get('/categorias', [CategoriaController::class, 'index']);
-Route::get('/productos', [ProductoController::class, 'index']);
 
 
 
