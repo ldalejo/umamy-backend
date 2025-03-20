@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\UserController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,8 +33,13 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/productos', [ProductoController::class, 'index']);
     Route::get('/productos-disponibles', [ProductoController::class, 'productosDisponibles']);
     Route::put('/productos/actualizar-producto/{producto}', [ProductoController::class, 'actualizarProducto']);
-});
 
+    // Rutas Usuario
+    Route::get('/usuarios', [UserController::class, 'index']);
+    Route::get('/datos-usuario/{user}', [UserController::class, 'datosUsuario']);
+    Route::put('/actualizar-datos-usuario/{user}', [UserController::class, 'actualizarDatosUsuario']);
+
+});
 
 //Autenticación
 Route::post('/registro', [AuthController::class, 'registro']);
