@@ -86,7 +86,9 @@ class ProductoController extends Controller
     {
         // Manejamos el error si no encuentra el producto
         if (!$producto) {
-            return response()->json(['error' => 'Pedido no encontrado'], 404);
+            return response()->json([
+                'error' => 'Pedido no encontrado'
+            ], 404);
         }
 
         // Cambiamos el estado a completado
@@ -104,9 +106,36 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function eliminarProducto(Producto $producto)
     {
-        //
+        try {
+            // Iniciamos la transaction
+            DB::beginTransaction();
+
+            // Eliminar la imagen del almacenamiento si existe
+            if ($producto->imagen) {
+                \Storage::disk('public')->delete($producto->imagen);
+            }
+
+            // Eliminar el producto de la base de datos
+            $producto->delete();
+
+            DB::commit();
+
+            return response()->json([
+                'message' => 'Producto eliminado correctamente'
+            ]);
+            
+        } catch (\Exception $e) {
+            // Si hay algún error, revertimos la transacción
+            DB::rollBack();
+
+            // Devuelves el error en la respuesta
+            return response()->json([
+                'message' => 'Error al eliminar el producto.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     public function productosDisponibles()

@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/productos-disponibles', [ProductoController::class, 'productosDisponibles']);
     Route::post('/producto/anadir-producto', [ProductoController::class, 'anadirProducto']);
     Route::put('/productos/actualizar-producto/{producto}', [ProductoController::class, 'actualizarProducto']);
+    Route::delete('/producto/eliminar-producto/{producto}', [ProductoController::class, 'eliminarProducto']);
 
     // Rutas Usuario
     Route::get('/usuarios', [UserController::class, 'index']);
